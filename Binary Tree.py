@@ -45,6 +45,24 @@ def SearchNode(SearchValue):
             CurrentPointer = ArrayNodes[CurrentPointer][2]
     return -1
 
+def InOrderTraversal(ArrayNodes, RootPointer):
+    if RootPointer != -1:
+        InOrderTraversal(ArrayNodes, ArrayNodes[RootPointer][0])
+        print(ArrayNodes [RootPointer][1], end=" ")
+        InOrderTraversal(ArrayNodes, ArrayNodes[RootPointer][2])
+
+def PreOrderTraversal(ArrayNodes, RootPointer):
+    if RootPointer != -1:
+        print(ArrayNodes[RootPointer][1], end=" ")
+        PreOrderTraversal(ArrayNodes, ArrayNodes[RootPointer][0])
+        PreOrderTraversal(ArrayNodes, ArrayNodes[RootPointer][2])
+
+def PostOrderTraversal(ArrayNodes, RootPointer):
+    if RootPointer != -1:
+        PostOrderTraversal(ArrayNodes, ArrayNodes[RootPointer][0])
+        PostOrderTraversal(ArrayNodes, ArrayNodes[RootPointer][2])
+        print(ArrayNodes[RootPointer][1], end=" ")
+
 ArrayNodes, RootPointer, FreePointer = initialiseTree()
 addNode(10)
 addNode(5)
